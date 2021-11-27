@@ -1,0 +1,35 @@
+﻿
+.advent-card {
+    width: 90px;
+    height: 90px;
+    text-align: center;
+    display: table-cell;
+    border-radius: 10px;
+    vertical-align: middle;
+    font-size: 50px;
+    border: 5px solid transparent;
+    border-image: 5 repeating-linear-gradient(-45deg, #9C2929 0, #9C2929 12px, transparent 0, transparent 12px, #08874F 12px, #08874F 24px, transparent 0, transparent 12px);
+    -webkit-mask-image: radial-gradient(transparent 0 0, #000 0px);
+    mask-image: radial-gradient(transparent 0 0px, #000 0px);
+    background-color: #151515;
+}
+
+.advent-calendar.incomplete {
+    opacity: .1;
+}
+
+    .advent-card.chistmas {
+        width: 9999px;
+    }
+
+.advent-calendar {
+    width: 700px;
+    margin: 0 auto;
+    display: table;
+    border-spacing: 0 .7em;
+}
+
+    .advent-calendar div a {
+        text-decoration: none !important;
+        color: #F5EED7;
+    }

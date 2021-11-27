@@ -1,0 +1,27 @@
+﻿@page "/"
+
+<PageTitle>Calendar</PageTitle>
+
+
+<div class="advent-calendar">
+
+    @for (int y = 0; y < 4; y++)
+    {
+        <div class="row">
+            @for (int x = 0; x < 6; x++)
+            {
+                <div class="col-2">
+                    <a href="">
+                        <div class="advent-card">@(x + (y*6) + 1)</div>
+                    </a>
+                </div>
+            }
+        </div>
+    }
+
+    <div class="col-6 offset-3">
+        <a href="">
+            <div class="advent-card chistmas">25</div>
+        </a>
+    </div>
+</div>
