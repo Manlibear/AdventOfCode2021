@@ -1,0 +1,118 @@
+/* /Pages/Index.razor.rz.scp.css */
+
+.advent-card[b-76jgqxub0i] {
+    width: 90px;
+    height: 90px;
+    text-align: center;
+    display: table-cell;
+    border-radius: 10px;
+    vertical-align: middle;
+    font-size: 50px;
+    border: 5px solid transparent;
+    border-image: 5 repeating-linear-gradient(-45deg, #9C2929 0, #9C2929 12px, transparent 0, transparent 12px, #08874F 12px, #08874F 24px, transparent 0, transparent 12px);
+    -webkit-mask-image: radial-gradient(transparent 0 0, #000 0px);
+    mask-image: radial-gradient(transparent 0 0px, #000 0px);
+    background-color: #151515;
+}
+
+.advent-calendar.incomplete[b-76jgqxub0i] {
+    opacity: .1;
+}
+
+    .advent-card.chistmas[b-76jgqxub0i] {
+        width: 9999px;
+    }
+
+.advent-calendar[b-76jgqxub0i] {
+    width: 700px;
+    margin: 0 auto;
+    display: table;
+    border-spacing: 0 .7em;
+}
+
+    .advent-calendar div a[b-76jgqxub0i] {
+        text-decoration: none !important;
+        color: #F5EED7;
+    }
+/* /Shared/MainLayout.razor.rz.scp.css */
+.page[b-pppemurybp] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-pppemurybp] {
+    flex: 1;
+}
+
+.sidebar[b-pppemurybp] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row[b-pppemurybp] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-pppemurybp]  a, .top-row[b-pppemurybp]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+    .top-row[b-pppemurybp]  a:hover, .top-row[b-pppemurybp]  .btn-link:hover {
+        text-decoration: underline;
+    }
+
+    .top-row[b-pppemurybp]  a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth)[b-pppemurybp] {
+        display: none;
+    }
+
+    .top-row.auth[b-pppemurybp] {
+        justify-content: space-between;
+    }
+
+    .top-row[b-pppemurybp]  a, .top-row[b-pppemurybp]  .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-pppemurybp] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-pppemurybp] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-pppemurybp] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row.auth[b-pppemurybp]  a:first-child {
+        flex: 1;
+        text-align: right;
+        width: 0;
+    }
+
+    .top-row[b-pppemurybp], article[b-pppemurybp] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
