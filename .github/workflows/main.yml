@@ -1,25 +1,31 @@
 name: gh-pages
 
 on: [push]
-
 jobs:
-  build:
-
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
-
+    name: Build and Deploy Job
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.301
-    - name: Publish with dotnet
-      run: dotnet publish --configuration Release --output build
-    - name: Deploy to Github Pages
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        ACCESS_TOKEN: $
-        BASE_BRANCH: development # The branch the action should deploy from.
-        BRANCH: master # The branch the action should deploy to.
-        FOLDER: build/wwwroot # The folder the action should deploy.
-        SINGLE_COMMIT: true
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.100-preview.8.20417.9
+      - name: Publish with dotnet
+        run: dotnet publish AdventOfCodeBlazor.csproj --configuration Release --output build
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "build/wwwroot" # App source code path <---- THIS IS THE IMPORTANT PART 
+          api_location: "Api" # Api source code path - optional
+          app_artifact_location: "/wwwroot" # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
