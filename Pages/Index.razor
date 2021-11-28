@@ -16,7 +16,7 @@
                         var thisDay = x + (y * 6) + 1;
                         var isComplete = DayApi.HasCompletedDay(thisDay);
                         var incompleteClass = isComplete ? "" : "incomplete";
-                        var href = isComplete ? $"/Day{thisDay}" : "";
+                        var href = isComplete ? $"Day{thisDay}" : "";
                     }
 
                     <a href="@href">
@@ -28,7 +28,7 @@
     }
 
     <div class="col-6 offset-3">
-        <a href="@(DayApi.HasCompletedDay(25) ? "/Day25" : "")">
+        <a href="@(DayApi.HasCompletedDay(25) ? "Day25" : "")">
             <div class="advent-card chistmas @(DayApi.HasCompletedDay(25) ? "" : "incomplete")">25</div>
         </a>
     </div>
