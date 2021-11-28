@@ -13,10 +13,12 @@
     -webkit-mask-image: radial-gradient(transparent 0 0, #000 0px);
     mask-image: radial-gradient(transparent 0 0px, #000 0px);
     background-color: #151515;
+    color: #F5EED7 !important;
 }
 
-.advent-calendar.incomplete[b-ki8a9r82f8] {
+.advent-card.incomplete[b-ki8a9r82f8] {
     opacity: .1;
+    cursor: not-allowed;
 }
 
     .advent-card.chistmas[b-ki8a9r82f8] {
@@ -32,7 +34,7 @@
 
     .advent-calendar div a[b-ki8a9r82f8] {
         text-decoration: none !important;
-        color: #F5EED7;
+        color: #F5EED7 !important;
     }
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-o3wtfz9sc4] {

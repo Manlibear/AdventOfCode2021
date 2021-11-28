@@ -1,4 +1,5 @@
 ﻿@page "/"
+@inject AdventOfCodeBlazor.Services.IDayApi DayApi
 
 <PageTitle>Calendar</PageTitle>
 
@@ -11,8 +12,15 @@
             @for (int x = 0; x < 6; x++)
             {
                 <div class="col-2">
-                    <a href="">
-                        <div class="advent-card">@(x + (y*6) + 1)</div>
+                    @{
+                        var thisDay = x + (y * 6) + 1;
+                        var isComplete = DayApi.HasCompletedDay(thisDay);
+                        var incompleteClass = isComplete ? "" : "incomplete";
+                        var href = isComplete ? $"/Day{thisDay}" : "";
+                    }
+
+                    <a href="@href">
+                        <div class="advent-card @incompleteClass">@thisDay</div>
                     </a>
                 </div>
             }
@@ -20,8 +28,8 @@
     }
 
     <div class="col-6 offset-3">
-        <a href="">
-            <div class="advent-card chistmas">25</div>
+        <a href="@(DayApi.HasCompletedDay(25) ? "/Day25" : "")">
+            <div class="advent-card chistmas @(DayApi.HasCompletedDay(25) ? "" : "incomplete")">25</div>
         </a>
     </div>
 </div>

@@ -12,10 +12,12 @@
     -webkit-mask-image: radial-gradient(transparent 0 0, #000 0px);
     mask-image: radial-gradient(transparent 0 0px, #000 0px);
     background-color: #151515;
+    color: #F5EED7 !important;
 }
 
-.advent-calendar.incomplete {
+.advent-card.incomplete {
     opacity: .1;
+    cursor: not-allowed;
 }
 
     .advent-card.chistmas {
@@ -31,5 +33,5 @@
 
     .advent-calendar div a {
         text-decoration: none !important;
-        color: #F5EED7;
+        color: #F5EED7 !important;
     }

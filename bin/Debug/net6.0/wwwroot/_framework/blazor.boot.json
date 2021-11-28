@@ -196,13 +196,13 @@
       "mscorlib.dll": "sha256-tlYWYAypJO+6gsCjV734iAJn8xcZYhUjM7vgxDLJluE=",
       "netstandard.dll": "sha256-E48Na3ZQWKExltzTwgP0Ao+UqWhiVYeerXfUL9lEc+c=",
       "System.Private.CoreLib.dll": "sha256-J85Z1XnwapHef31sR58JFq+0HrFP5BjOoObPKjdFHCw=",
-      "AdventOfCodeBlazor.dll": "sha256-\/IAaSw+reEG3AEGBO8e+Woy+RZkF4p7z+Vc2L2\/Hpos="
+      "AdventOfCodeBlazor.dll": "sha256-RLR4WCyysAN8xWLbWFXqKJRCX92FfSNEe2\/Oj\/vxi1w="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "AdventOfCodeBlazor.pdb": "sha256-jKesfx6hwxxTTge\/9oCOqA58Mz4lbM9+IGzQFPYDQdk="
+      "AdventOfCodeBlazor.pdb": "sha256-L7kiqgdOg8WDrth5g7PsUbrhajrhdvheldNrlGdmqOU="
     },
     "runtime": {
       "dotnet.6.0.0.hiip41ucs4.js": "sha256-LOq52qjRa3+zt3w4UL10rS3UdwHxVQxW0JAsMPO9QAM=",

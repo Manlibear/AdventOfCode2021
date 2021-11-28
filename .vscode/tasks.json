@@ -6,10 +6,7 @@
             "command": "dotnet",
             "type": "process",
             "args": [
-                "build",
-                "${workspaceFolder}/AdventOfCodeBlazor.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "watch"
             ],
             "problemMatcher": "$msCompile"
         },
