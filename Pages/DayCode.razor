@@ -1,7 +1,9 @@
 @inject HttpClient Http;
-<code>
+@inject IJSRuntime JS;
+
+<pre class="prettyprint linenums">
     @((MarkupString)dayCode)
-</code>
+</pre>
 
 @code {
 
@@ -9,11 +11,21 @@
 
     protected override async Task OnInitializedAsync()
     {
-        dayCode = await Http.GetStringAsync("Code/Day1.razor.md");
-        //TODO: Hacky crap to get the code files to display properly, but who cares
-        dayCode = dayCode.Replace("\n", "<br />");
-        dayCode = dayCode.Replace("\t", "&#8195;&#8195;&#8195;&#8195;");
-        dayCode = dayCode.Replace("    ", "&#8195;&#8195;&#8195;&#8195;");
-
+        await Http.GetStringAsync("Code/Day1.razor.md").ContinueWith((str) =>
+        {
+            Console.WriteLine("Got string");
+            dayCode = str.Result;
+        });
     }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender)
+        {
+            Console.WriteLine("Pretty");
+            await JS.InvokeVoidAsync("PR.prettyPrint");
+        }
+    }
+
+
 }
