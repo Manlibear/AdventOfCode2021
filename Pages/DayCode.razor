@@ -13,7 +13,6 @@
     {
         await Http.GetStringAsync("Code/Day1.razor.md").ContinueWith((str) =>
         {
-            Console.WriteLine("Got string");
             dayCode = str.Result;
         });
     }
@@ -22,7 +21,6 @@
     {
         if (!firstRender)
         {
-            Console.WriteLine("Pretty");
             await JS.InvokeVoidAsync("PR.prettyPrint");
         }
     }

@@ -52,7 +52,6 @@ a,
     border-radius: 20px;
     height: 500px;
     padding: 1.5em;
-    overflow-y: scroll;
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -116,4 +115,15 @@ pre {
     padding: 10px;
     display: block;
     border-radius: 10px;
+}
+
+.simplebar-scrollbar::before {
+    background-color: #F5EED7;
+}
+
+.simplebar-track.simplebar-vertical {
+    top: 12px;
+    width: 8px;
+    bottom: 12px;
+    right: 3px;
 }
