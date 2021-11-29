@@ -1,5 +1,4 @@
-﻿
-// Initialising the canvas
+﻿// Initialising the canvas
 var canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d');
 
@@ -8,7 +7,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 // Setting up the letters
-var letters = '*.x#@';
+var letters = '*.x;o';
 letters = letters.split('');
 
 // Setting up the columns
@@ -23,11 +22,11 @@ for (var i = 0; i < columns; i++) {
 
 // Setting up the draw function
 function draw() {
-    ctx.fillStyle = 'rgba(21, 21, 21, .5)';
+    ctx.fillStyle = 'rgba(21, 21, 21, .7)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     for (var i = 0; i < drops.length; i++) {
         var text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillStyle = '#ccc';
+        ctx.fillStyle = '#aaa';
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
         drops[i]++;
         if (drops[i] * fontSize > canvas.height && Math.random() > .95) {
@@ -37,4 +36,4 @@ function draw() {
 }
 
 // Loop the animation
-setInterval(draw, 33);
+setInterval(draw, 50);

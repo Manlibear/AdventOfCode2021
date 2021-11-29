@@ -4,7 +4,9 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await Http.GetStringAsync("Code/Day1.razor.md").ContinueWith((str) =>
+        var pageName = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+
+        await Http.GetStringAsync($"Code/{pageName}.razor.md").ContinueWith((str) =>
         {
             dayCode = str.Result;
         });
