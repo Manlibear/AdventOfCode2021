@@ -1,4 +1,6 @@
 @code
 {
-    string answer = "123";
+    string Anwser(){
+        return (1 + 1).ToString();
+    }
 }
