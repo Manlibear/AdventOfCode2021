@@ -17,7 +17,7 @@ var fontSize = 10,
 // Setting up the drops
 var drops = [];
 for (var i = 0; i < columns; i++) {
-    drops[i] = 1;
+    drops[i] = 9999;
 }
 
 // Setting up the draw function
