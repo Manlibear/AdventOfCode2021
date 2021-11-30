@@ -31,7 +31,9 @@
     }
     
     .home-link,
-    .home-link:hover {
+    .home-link:hover,
+    .site-links a,
+    .site-links a:hover {
         color: #F5EED7;
         text-decoration: none;
     }
@@ -45,10 +47,6 @@
         color: #fff;
         background-color: #1b6ec2;
         border-color: #1861ac;
-    }
-    
-    .content {
-        padding-top: 1.1rem;
     }
     
     .day {
