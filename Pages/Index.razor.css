@@ -1,5 +1,4 @@
-﻿
-.advent-card {
+﻿.advent-card {
     width: 90px;
     height: 90px;
     text-align: center;
@@ -20,9 +19,9 @@
     cursor: not-allowed;
 }
 
-    .advent-card.chistmas {
-        width: 9999px;
-    }
+.advent-card.chistmas {
+    width: 9999px;
+}
 
 .advent-calendar {
     width: 700px;
@@ -31,7 +30,7 @@
     border-spacing: 0 .7em;
 }
 
-    .advent-calendar div a {
-        text-decoration: none !important;
-        color: #F5EED7 !important;
-    }
+.advent-calendar div a {
+    text-decoration: none !important;
+    color: #F5EED7 !important;
+}
