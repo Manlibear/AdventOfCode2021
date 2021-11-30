@@ -1,5 +1,4 @@
 /* /Pages/Index.razor.rz.scp.css */
-
 .advent-card[b-76jgqxub0i] {
     width: 90px;
     height: 90px;
@@ -21,9 +20,9 @@
     cursor: not-allowed;
 }
 
-    .advent-card.chistmas[b-76jgqxub0i] {
-        width: 9999px;
-    }
+.advent-card.chistmas[b-76jgqxub0i] {
+    width: 9999px;
+}
 
 .advent-calendar[b-76jgqxub0i] {
     width: 700px;
@@ -32,10 +31,10 @@
     border-spacing: 0 .7em;
 }
 
-    .advent-calendar div a[b-76jgqxub0i] {
-        text-decoration: none !important;
-        color: #F5EED7 !important;
-    }
+.advent-calendar div a[b-76jgqxub0i] {
+    text-decoration: none !important;
+    color: #F5EED7 !important;
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-pppemurybp] {
     position: relative;

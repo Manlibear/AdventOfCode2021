@@ -169,3 +169,83 @@
         left: -9px;
         mask-image: linear-gradient(rgba(131, 106, 106, 0.5), transparent);
     }
+    
+    @keyframes svganimation {
+        0% {
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dashoffset: 1000;
+        }
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+    
+    .tree {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        margin: 40px auto;
+    }
+    
+    .tree svg {
+        /* fill: none; */
+        stroke-width: 1px;
+        stroke: #F5EED7;
+        width: 70%;
+        height: 70%;
+    }
+    
+    .tree svg .p {
+        stroke-dashoffset: 700;
+        stroke-dasharray: 70;
+        animation: svganimation 20s linear forwards infinite;
+    }
+    
+    .tree svg .c {
+        stroke-dashoffset: 1000;
+        stroke-dasharray: 13;
+    }
+    
+    .tree svg .c1 {
+        animation: svganimation 100s linear forwards infinite;
+        stroke: #9C2929;
+    }
+    
+    .tree svg .c2 {
+        animation: svganimation 100s linear forwards infinite;
+        animation-delay: .05s;
+        stroke: #08874F;
+    }
+    
+    .tree svg .c3 {
+        animation: svganimation 100s linear forwards infinite;
+        animation-delay: .25s;
+        stroke: #08874F;
+    }
+    
+    .tree svg .c4 {
+        animation: svganimation 100s linear forwards infinite;
+        animation-delay: .30s;
+        stroke: #9C2929;
+    }
+    
+    .tree svg .c5 {
+        animation: svganimation 100s linear forwards infinite;
+        animation-delay: .20s;
+        stroke: #9C2929;
+    }
+    
+    .tree svg .c6 {
+        animation: svganimation 100s linear forwards infinite;
+        animation-delay: .10s;
+        stroke: #08874F;
+    }
+    
+    .tree svg .c7 {
+        animation: svganimation 100s linear forwards infinite;
+        animation-delay: .15s;
+        stroke: #9C2929;
+    }
