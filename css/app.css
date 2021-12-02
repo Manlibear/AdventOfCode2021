@@ -159,6 +159,7 @@
         bottom: 0;
         background: url("../img/tree-border.png") repeat-x bottom;
         mask-image: linear-gradient(rgba(255, 255, 255, 1.0), transparent);
+        webkit-mask-image: linear-gradient(rgba(255, 255, 255, 1.0), transparent);
         pointer-events: none
     }
     
