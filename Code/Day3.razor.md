@@ -1,0 +1,56 @@
+@code
+{
+    string answer1 = "";
+    string answer2 = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        // least common
+        string epsilon = "";
+        // most common
+        string gamma = "";
+
+        await DayApi.GetDayInput(3).ContinueWith((str) =>
+        {
+            var lines = str.Result.Split("\n");
+
+            char[,] cols = new char[lines[0].Length, lines.Count()];
+
+            // first get the data in columns rather than rows
+            for (int i = 0; i < lines.Count(); i++)
+            {
+                for (int j = 0; j < lines[i].Length; j++)
+                {
+                    cols[j, i] = lines[i][j];
+                }
+            }
+
+            // count the zeroes in each column
+            int[] zeroCount = new int[cols.GetLength(0) - 1];
+            for (int y = 0; y < cols.GetLength(0); y++)
+            {
+                for (int x = 0; x < cols.GetLength(1); x++)
+                {
+                    if (cols[y, x] == '0')
+                        zeroCount[y]++;
+                }
+            }
+
+            // if there are more zeroes than half of the length of input, then it's the most common
+            int halfCount  = (cols.GetLength(1) / 2);
+            foreach (var z in zeroCount)
+            {
+                Console.Write(z.ToString() + ",");
+
+                gamma += (z > halfCount ? "0" : "1");
+                // epsilon is the opposite of gamma
+                epsilon += gamma.Last() == '0' ? "1" : "0";
+            }
+
+            var gammaInt = Convert.ToInt32(gamma, 2);
+            var epsilonInt = Convert.ToInt32(epsilon, 2);
+
+            answer1 = (gammaInt * epsilonInt).ToString();
+        });
+    }
+}
