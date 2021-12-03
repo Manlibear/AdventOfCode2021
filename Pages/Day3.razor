@@ -52,11 +52,11 @@
                 epsilon += gamma.Last() == '0' ? "1" : "0";
 
                 // if we still have multiple oxygen values left to filter, pick the most common, otherwise just use the current
-                oxygen += linesOxy.Count() > 1 ? (zO > (linesOxy.Count() / 2) ? "0" : "1") : linesOxy.First()[c];
+                oxygen += linesOxy.Count() > 1 ? (zO > (linesOxy.Count() / 2) ? "0" : "1") : linesOxy[0][c];
                 linesOxy = linesOxy.Where(x => x.StartsWith(oxygen)).ToList();
 
                 //... same as above, but differing rules
-                co2 += linesCo2.Count() > 1 ? (zC <= (linesCo2.Count() / 2) ? "0" : "1") : linesCo2.First()[c];
+                co2 += linesCo2.Count() > 1 ? (zC <= (linesCo2.Count() / 2) ? "0" : "1") : linesCo2[0][c];
                 linesCo2 = linesCo2.Where(x => x.StartsWith(co2)).ToList();
             }
 
