@@ -20,7 +20,8 @@ namespace AdventOfCodeBlazor.Services
         private HttpClient Http { get; set; }
         private readonly int[] _completedDays = new int[]{
                 1,
-                2
+                2,
+                3
             };
 
         public async Task<string> GetDayInput(int day)
