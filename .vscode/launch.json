@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "blazorwasm",
+            "request": "launch",
+            "name": "Launch and Debug",
+            "browser": "edge",
+            "url": "https://localhost:5001"
+        }
+    ]
+}
