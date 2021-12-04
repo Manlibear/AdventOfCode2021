@@ -21,7 +21,8 @@ namespace AdventOfCodeBlazor.Services
         private readonly int[] _completedDays = new int[]{
                 1,
                 2,
-                3
+                3,
+                4
             };
 
         public async Task<string> GetDayInput(int day)
