@@ -15,7 +15,6 @@
     <DayCode />
 </div>
 
-
 @code
 {
     string answer1 = "";
@@ -29,13 +28,12 @@
 
             var boards = new List<Board>();
             var boardInputs = str.Result.Split("\r\n\r\n").Skip(1).ToList(); // skip one for the calling row
+            List<Board> winningBoards = new List<Board>();
 
             foreach (var b in boardInputs)
             {
                 boards.Add(new Board(b));
             }
-
-            List<Board> winningBoards = new List<Board>();
 
             foreach (var n in callingNumbers)
             {
@@ -47,20 +45,20 @@
                     b.Score = b.CalculateScore() * number;
 
                     if (b.Score != 0)
-                    {
                         winningBoards.Add(b);
-                    }
                 }
             }
 
             answer1 = winningBoards.First().Score.ToString();
             answer2 = winningBoards.Last().Score.ToString();
-
         });
     }
 
     class Board
     {
+        public int Score = 0;
+        Tile[][] Tiles;
+
         public Board(string input)
         {
             var rows = input.Split("\r\n");
@@ -81,13 +79,9 @@
         public void CallNumber(int number)
         {
             foreach (var r in Tiles)
-            {
                 foreach (var c in r)
-                {
                     if (c.Value == number)
                         c.Found = true;
-                }
-            }
         }
 
         public int CalculateScore()
@@ -101,33 +95,17 @@
             var completeCol = foundColumns.FirstOrDefault(x => x.Count() == Tiles.Count());
 
             if (completeRow != null || completeCol != null)
-            {
                 return Tiles.SelectMany(x => x.Where(t => !t.Found)).Select(x => x.Value).Sum();
-            }
 
             return 0;
         }
-
-        public int Score = 0;
-
-        Tile[][] Tiles;
 
         class Tile
         {
             public int Value;
             public bool Found;
-
             public int IndexY;
-
             public int IndexX;
-
-            public Tile(int val, int idxX, int idxY, bool found = false)
-            {
-                Value = val;
-                Found = found;
-                IndexX = idxX;
-                IndexY = idxY;
-            }
 
             public Tile(string val, int idxX, int idxY, bool found = false)
             {
