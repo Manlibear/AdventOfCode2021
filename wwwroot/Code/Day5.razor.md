@@ -7,9 +7,7 @@
     {
         await DayApi.GetDayInput(5).ContinueWith((str) =>
         {
-            List<Line> lines = str.Result.Split("\n").Select(x => new Line(x)).ToList();
-            List<Line> straightLines = lines.Where(x => x.IsStraight).ToList();
-            List<Line> diagonalLines = lines.Where(x => !x.IsStraight).ToList();
+            IEnumerable<Line> lines = str.Result.Split("\n").Select(x => new Line(x));
 
             // we need to know the max values to create the grid
             var gridMaxX = lines.Max(x => Math.Max(x.Start.X, x.End.X));
@@ -21,7 +19,7 @@
                 grid[i] = new int[gridMaxX + 1];
 
             // paint the straight lines onto the grid
-            foreach (var l in straightLines)
+            foreach (var l in lines.Where(x => x.IsStraight))
             {
                 var minX = Math.Min(l.Start.X, l.End.X);
                 var maxX = Math.Max(l.Start.X, l.End.X);
@@ -43,14 +41,13 @@
             answer1 = straightOverlaps.ToString();
 
             // draw the diagonals
-            foreach (var l in diagonalLines)
+            foreach (var l in lines.Where(x => !x.IsStraight))
             {
                 Coordinate dir = Coordinate.FromLine(l.Start, l.End);
                 Coordinate readPoint = l.Start;
-                Coordinate end = l.End;
 
                 grid[readPoint.Y][readPoint.X]++;
-                while (readPoint != end)
+                while (readPoint != l.End)
                 {
                     readPoint += dir;
                     grid[readPoint.Y][readPoint.X]++;
