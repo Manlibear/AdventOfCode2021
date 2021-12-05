@@ -45,9 +45,9 @@
             // draw the diagonals
             foreach (var l in diagonalLines)
             {
-                Vector dir = Vector.FromLine(l.Start, l.End);
-                Vector readPoint = l.Start.ToVector();
-                Vector end = l.End.ToVector();
+                Coordinate dir = Coordinate.FromLine(l.Start, l.End);
+                Coordinate readPoint = l.Start;
+                Coordinate end = l.End;
 
                 grid[readPoint.Y][readPoint.X]++;
                 while (readPoint != end)
@@ -62,37 +62,6 @@
         });
     }
 
-    public class Vector
-    {
-        public int X { get; set; }
-        public int Y { get; set; }
-
-        public static Vector FromLine(Coordinate start, Coordinate end)
-        {
-            var difX = end.X - start.X;
-            var difY = end.Y - start.Y;
-            Vector vect = new Vector(0, 0);
-
-            if (difX != 0)
-                vect.X = difX > 0 ? 1 : -1;
-
-            if (difY != 0)
-                vect.Y = difY > 0 ? 1 : -1;
-
-            return vect;
-        }
-
-        public Vector(int x, int y)
-        {
-            X = x;
-            Y = y;
-        }
-
-        public static Vector operator +(Vector a, Vector b) => new Vector(a.X + b.X, a.Y + b.Y);
-        public static bool operator ==(Vector a, Vector b) => a.X == b.X && a.Y == b.Y;
-        public static bool operator !=(Vector a, Vector b) => a.X != b.X || a.Y != b.Y;
-    }
-
     public class Coordinate
     {
         public int X { get; set; }
@@ -104,10 +73,37 @@
             Y = int.Parse(point[1]);
         }
 
-        public Vector ToVector()
+        public Coordinate(int x = 0, int y = 0) { X = x; Y = y; }
+
+        public static Coordinate FromLine(Coordinate start, Coordinate end)
         {
-            return new Vector(X, Y);
+            var difX = end.X - start.X;
+            var difY = end.Y - start.Y;
+            Coordinate coord = new Coordinate();
+
+            if (difX != 0)
+                coord.X = difX > 0 ? 1 : -1;
+
+            if (difY != 0)
+                coord.Y = difY > 0 ? 1 : -1;
+
+            return coord;
         }
+
+        public static Coordinate operator +(Coordinate a, Coordinate b) => new Coordinate(a.X + b.X, a.Y + b.Y);
+        public static bool operator ==(Coordinate a, Coordinate b) => a.X == b.X && a.Y == b.Y;
+        public static bool operator !=(Coordinate a, Coordinate b) => a.X != b.X || a.Y != b.Y;
+
+
+        public override bool Equals(object? obj)
+        {
+            if (obj != null && obj is Coordinate)
+                return this == (Coordinate)obj;
+
+            return false;
+        }
+
+        public override int GetHashCode() => base.GetHashCode();
     }
 
     public class Line
