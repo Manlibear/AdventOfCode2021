@@ -5,6 +5,10 @@
             "request": "launch",
             "name": "Launch and Debug",
             "browser": "edge",
+            "preLaunchTask": {
+                "task": "extract",
+                "type": "shell"
+            },
             "url": "https://localhost:5001"
         }
     ]
