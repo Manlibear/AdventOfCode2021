@@ -6,7 +6,7 @@
             "name": "Launch and Debug",
             "browser": "edge",
             "preLaunchTask": {
-                "task": "extract",
+                "task": "extract-blazor-code",
                 "type": "shell"
             },
             "url": "https://localhost:5001"
