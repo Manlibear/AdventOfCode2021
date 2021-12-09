@@ -27,6 +27,7 @@ namespace AdventOfCodeBlazor.Services
                 6,
                 7,
                 8,
+                9,
             };
 
         public async Task<string> GetDayInput(int day)

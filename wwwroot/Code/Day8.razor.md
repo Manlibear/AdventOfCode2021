@@ -8,16 +8,16 @@
         await DayApi.GetDayInput(8).ContinueWith((str) =>
         {
             var lines = str.Result.Split("\n").Select(x =>
-    {
-    var parts = x.Split(" | ");
-    return new
-    {
-        Input = parts[0].Trim().Replace("\n", "").Split(" "),
-        Output = parts[1].Trim().Replace("\n", "").Split(" ")
-    };
+            {
+                var parts = x.Split(" | ");
+                return new
+                {
+                    Input = parts[0].Trim().Replace("\n", "").Split(" "),
+                    Output = parts[1].Trim().Replace("\n", "").Split(" ")
+                };
             }).ToDictionary(x => x.Input, x => x.Output);
 
-            Dictionary<int, int> numLookup = new Dictionary<int, int>() { { 2, 1 }, { 3, 7 }, { 4, 4 }, { 7, 8 } };
+            int[] knownNumbers = new int[4] { 2, 3, 4, 7 };
 
             int known = 0;
             int sum = 0;
@@ -31,17 +31,12 @@
                 string sInt = "";
                 foreach (var o in l.Value)
                 {
-                    if (numLookup.ContainsKey(o.Length))
+                    if (knownNumbers.Contains(o.Length))
                         known++;
 
-                    var parsed = disp.Read(o).ToString();
-
-                    @* Console.WriteLine($"{o} -> {parsed}"); *@
-
-                    sInt += parsed;
+                    sInt += disp.Read(o).ToString();
                 }
 
-                Console.WriteLine($"{string.Join(' ', l.Value)} -> {sInt}");
                 sum += int.Parse(sInt);
             }
 
@@ -54,7 +49,6 @@
     {
         string[] parsed = new string[10];
 
-        // Determine a known number, mapping the length to winding order
         public void Parse(string[] s)
         {
             var grouped = s.GroupBy(x => x.Length);
@@ -64,7 +58,7 @@
             var four = grouped.First(x => x.Key == 4).First();
             var seven = grouped.First(x => x.Key == 3).First();
             var eight = grouped.First(x => x.Key == 7).First();
-
+            //.. and groups of length
             var sixChars = grouped.First(x => x.Key == 6);
             var fiveChars = grouped.First(x => x.Key == 5);
 
@@ -89,11 +83,6 @@
             var two = fiveChars.First();
 
             parsed = new string[10] { zero, one, two, three, four, five, six, seven, eight, nine };
-            @*
-                foreach (var p in parsed)
-                Console.Write($"{p},");
-
-                Console.WriteLine(); *@
         }
 
         private char RemoveSegments(string a, string b)
@@ -142,7 +131,7 @@
                 }
             }
 
-            return -1;
+            throw new Exception($"Unknown number {s}");
         }
     }
 }

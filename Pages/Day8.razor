@@ -34,7 +34,7 @@
                 };
             }).ToDictionary(x => x.Input, x => x.Output);
 
-            Dictionary<int, int> numLookup = new Dictionary<int, int>() { { 2, 1 }, { 3, 7 }, { 4, 4 }, { 7, 8 } };
+            int[] knownNumbers = new int[4] { 2, 3, 4, 7 };
 
             int known = 0;
             int sum = 0;
@@ -48,7 +48,7 @@
                 string sInt = "";
                 foreach (var o in l.Value)
                 {
-                    if (numLookup.ContainsKey(o.Length))
+                    if (knownNumbers.Contains(o.Length))
                         known++;
 
                     sInt += disp.Read(o).ToString();
@@ -148,7 +148,7 @@
                 }
             }
 
-            return -1;
+            throw new Exception($"Unknown number {s}");
         }
     }
 }
