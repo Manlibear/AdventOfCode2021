@@ -128,8 +128,6 @@
                 Console.WriteLine(thisLineScore);
             }
 
-
-
             answer2 = autoCompleteScores.OrderBy(x => x).Skip(autoCompleteScores.Count() / 2).Take(1).First().ToString();
 
         });
